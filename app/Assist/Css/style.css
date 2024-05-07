@@ -1,0 +1,769 @@
+* {
+    box-sizing: border-box;
+}
+
+
+:root {
+
+
+    --primaryColor: purple;
+    --black: black;
+    --white: white;
+
+}
+
+body {
+    font-size: 18px;
+    color: black;
+}
+
+h1 {
+    font-size: 38px;
+}
+
+h2 {
+    font-size: 34px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 26px;
+}
+
+h5 {
+    font-size: 22px;
+}
+
+h6 {
+    font-size: 20px;
+}
+
+
+.page {
+    padding: 15px;
+}
+
+
+.banner-section {
+    width: 90%;
+    margin: 0 auto;
+    height: 40vh;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.587)), url("../Images/banner.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    -webkit-border-radius: 15;
+    -moz-border-radius: 15;
+    -ms-border-radius: 15;
+    -o-border-radius: 15;
+}
+
+.banner-section h2 {
+    height: 100%;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+/* navigation bar styles */
+.navbar-area {
+    background-color: rgb(230, 230, 230);
+    color: rgb(0, 0, 0);
+
+}
+
+.navbar-area .nav-items {
+    width: 60%;
+    display: flex;
+    justify-content: space-between !important;
+}
+
+.navbar-area nav {
+    width: 100%;
+    display: flex;
+    justify-content: end !important;
+    text-align: right;
+}
+
+.navbar-area nav ul {
+    width: 75%;
+    justify-content: space-between;
+}
+
+.navbar-area nav ul li a {
+    font-size: 18px;
+}
+
+.navbar-area {
+    position: relative;
+}
+
+.navbar-area nav ul li ul {
+    width: 200px;
+    position: absolute;
+    right: 10px;
+    top: 100%;
+    display: block;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(210, 0, 172, 0.3);
+    justify-content: center;
+    z-index: 9999;
+}
+
+.navbar-area nav ul li ul li {
+    color: black !important;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: Center;
+    justify-content: center;
+    gap: 5px;
+    text-align: center;
+    padding: 8px 0;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+
+.navbar-area nav ul li ul li:hover {
+    background-color: purple;
+    color: white !important;
+}
+
+.navbar-area nav ul li ul li svg {
+    font-size: 30px;
+}
+
+.navbar-area {
+    position: relative;
+}
+
+.navbar-area .bars {
+    display: none;
+}
+
+.navbar-area .bars svg {
+    position: absolute;
+    top: 35%;
+    right: 20px;
+    font-size: 22px;
+}
+
+
+
+
+/* slide area */
+.slider-area {
+    width: 95%;
+    margin: 15px auto;
+}
+
+.slider-area .items {
+    width: 100%;
+
+}
+
+.slider-area .items img {
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+/* offer sold list table */
+.recenter-offer-selling-list {
+    padding: 75px 0;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+    margin: 50px 0;
+    overflow-x: auto;
+}
+
+.selling-table {
+    width: 95%;
+    margin: 15px auto;
+    overflow: hidden;
+}
+
+.selling-table h3 {
+    background-color: var(--black);
+    padding: 25px 0;
+    color: white;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 70px;
+}
+
+
+
+/* data table */
+table {
+    width: 100%;
+    margin: 0 auto;
+    table-layout: fixed;
+    background-color: white;
+    transition-duration: .9s;
+    transition: 2s !important;
+    -webkit-transition: 2s !important;
+    -moz-transition: 2s !important;
+    -ms-transition: 2s !important;
+    -o-transition: 2s !important;
+    overflow: scroll;
+}
+
+table tr {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
+}
+
+thead tr th {
+    text-align: left;
+    padding: 10px 15px;
+    background-color: var(--primaryColor);
+    color: white;
+    font-size: 16px;
+    font-weight: 900;
+
+}
+
+table tr {
+    height: 80px;
+}
+
+table tr td {
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 14px;
+    margin: 10px 0 !important;
+
+}
+
+table tr td:first-child {
+    padding-right: 25px;
+}
+
+table tr td:last-child {
+    width: fit-content;
+}
+
+table tr td svg {
+    font-size: 20px !important;
+    color: purple;
+}
+
+table tr td a {
+    width: 100%;
+    padding: 10px 25px;
+    background-color: var(--primaryColor);
+    color: white;
+    border-radius: 10px;
+}
+
+table tr td a button {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+/* table tabs */
+.react-tabs__tab-list {
+    text-align: center;
+}
+
+.package-table .react-tabs {
+    padding: 25px 0;
+}
+
+.react-tabs__tab {
+    font-size: 22px;
+}
+
+.package-table .react-tabs__tab-list {
+    text-align: left;
+    font-size: 20px;
+    color: var(--PrimaryColor);
+}
+
+.react-tabs__tab--selected {
+    background-color: purple !important;
+    color: white !important;
+}
+
+
+/* offer list section */
+.offer-section {
+    padding: 75px 0;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
+    margin: 50px 0;
+    overflow: hidden;
+}
+
+.offer-list-section {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.offer-list-section h2 {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 32px;
+    padding: 25px 0;
+    margin: 35px 0;
+}
+
+.offer-section table {
+    overflow-x: scroll !important;
+}
+
+
+
+
+
+
+/* signup page */
+.login-area {
+    width: 100%;
+    padding: 70px 0;
+}
+
+.login-area h3 {
+    font-size: 24px;
+    text-transform:uppercase;
+    font-weight: 700;
+}
+
+.login-area .login-content-box {
+    width: 40%;
+    height: 100%;
+    margin: 50px auto;
+    padding: 50px;
+    box-shadow: 0px 0px 10px rgba(201, 1, 232, 0.711);
+}
+
+form {
+    width: 100%;
+    margin: 15px auto;
+    display: flex;
+    flex-direction:column;
+    gap:15px !important;
+}
+
+.login-area form input {
+    width: 100%;
+    display:block;
+    border: .5px solid #010101;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: var(--primaryColor);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+form span input[type="checkbox"] {
+    width: 40px;
+    height: 20px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+form span {
+    width: 100%;
+}
+
+form span p {
+    text-align: right;
+    color: red;
+    font-weight: 600;
+}
+
+
+.ResetPassword {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-area .forgot-password {
+    width: 45%;
+    padding: 75px 35px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px purple;
+}
+
+.login-area .forgot-password h4 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.login-area h3 {
+    margin-top: 25px;
+}
+
+
+
+
+
+/* Confirm order page */
+.order-placement-page {
+    width: 100%;
+    height: 90vh;
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-placement-page .offer-title span {
+    font-weight: 600;
+}
+
+.order-placement-page .offer-title h3 {
+    font-size: 20px;
+    text-transform: capitalize;
+    text-align: Center;
+}
+
+.order-placement-page .offer-title h4 {
+    font-size: 22px;
+    text-align: center;
+    text-transform: capitalize;
+    text-align: Center;
+    margin: 5px 0;
+}
+
+.order-placement-page .order-confirmation {
+    width: 45%;
+    margin: auto auto !important;
+    padding: 50px;
+    box-shadow: 0px 0px 5px rgba(215, 2, 208, 0.3);
+    border-radius: 25px;
+}
+
+.order-placement-page form {
+    margin-top: 50px;
+}
+
+.order-placement-page form h4 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.order-placement-page form h4::first-letter {
+    text-transform: uppercase;
+}
+
+.order-placement-page form input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid gray;
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+
+.order-placement-page form label {
+    font-weight: 600;
+    font-size: 17px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+/* support page */
+
+.Support-page {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Support-page .content-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+}
+
+.Support-page .items {
+    width: 25%;
+    padding: 25px;
+    box-shadow: 0px 0px 3px rgba(128, 0, 128, 0.496);
+    justify-content: center;
+    text-align: center;
+}
+
+.Support-page .items h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.Support-page .items p {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.Support-page .items span {
+    font-size: 20px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* dashboard page */
+
+.Dashboard-page {}
+
+.Dashboard-page .main-content {
+    display: flex;
+}
+
+.Dashboard-page .react-tabs {}
+
+.Dashboard-page .react-tabs {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Dashboard-page .right-sidebar-content {
+    width: 100%;
+}
+
+.Dashboard-page .dashboard-heading {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.Dashboard-page .heading {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Dashboard-page .heading svg{
+   cursor:pointer;
+}
+
+.Dashboard-page .heading .profile {
+    display: flex;
+    gap: 20px;
+}
+
+.Dashboard-page .profile svg {
+    font-size: 30px;
+    cursor:pointer;
+}
+
+.Dashboard-page .heading p {
+    font-size: 18px;
+}
+
+.Dashboard-page .heading p span {
+    font-weight: 600;
+}
+
+.Dashboard-page .heading h6 {
+    font-size: 18px;
+}
+
+
+
+.Dashboard-page .left-sitebar {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(128, 0, 128, 0.496);
+}
+
+.Dashboard-page .left-sitebar span {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.Dashboard-page .react-tabs__tab {
+    width: 100%;
+    display: block;
+    border: none;
+    font-size: 16px;
+    text-align: left;
+}
+
+.Dashboard-page .react-tabs__tab svg {
+    font-size: 18px;
+}
+
+.Dashboard-page .react-tabs__tab-list {
+    border: none !important;
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.Dashboard-page .react-tabs__tab-listm li {
+    font-size: 16px;
+    background-color: green !important;
+    display: none;
+}
+
+
+
+.Dashboard-page table {
+    overflow-x: scroll;
+}
+
+.Dashboard-page .add-balance-setion {
+    width: 100%;
+}
+
+.react-tabs__tab-panel {
+    padding: 25px;
+}
+
+.Dashboard-page .left-sitebar svg {
+    font-size: 18px !important;
+}
+
+.Dashboard-page .add-balance {
+    width: 50%;
+    padding: 25px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: 0px 0px 5px rgba(128, 0, 128, 0.659);
+}
+
+.Dashboard-page .add-balance form span {
+    width: 90%;
+    margin: 0px auto;
+}
+.Dashboard-page .add-balance form {
+    margin: 0px auto;
+}
+
+.Dashboard-page .add-balance form input {
+    width: 100%;
+    display: block;
+    padding: 5px;
+    border: .5px solid rgba(128, 0, 128, 0.659);
+}
+
+.Dashboard-page .notification ul {
+    margin-top: 50px;
+}
+
+.Dashboard-page .notification ul li {
+    padding: 10px;
+    margin: 25px 0;
+    border-bottom: .5px solid rgba(128, 0, 128, 0.159);
+}
+
+
+.Dashboard-page table {
+    width: 100%;
+    overflow-x: scroll !important;
+}
+
+.Dashboard-page .content-table {
+    width: 100%;
+    overflow: hidden;
+}
+.Dashboard-page .page-title h3{
+   font-size:28px;
+}
+
+
