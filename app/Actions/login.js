@@ -1,24 +1,35 @@
-"use server";
-import { signIn } from "@/auth";
+// "use server";
+// import { signIn, auth } from "@/auth";
 
-export const login = async () => {
-  try {
-    console.log("hello");
-    await signIn("credentials", {
-      phone: "01245454",
-      password: "hello",
-    });
-  } catch (err) {
-    if (err) {
-      switch (err.type) {
-        case "CredentialsSignin":
-          return { error: "Invaild Credentials" };
+// export const useSession = async () => {
+//   const session = await auth();
 
-        default:
-          return { error: "Something wen wrong!" };
-      }
-    }
+//   return session;
+// };
 
-    throw err;
-  }
-};
+// export const login = async (user) => {
+//   try {
+//     await signIn("credentials", {
+//       redirect: false,
+//       phone: user.phone,
+//       password: user.password,
+//     });
+
+//     return {
+//       ok: true,
+//       message: "Login Success!",
+//     };
+//   } catch (err) {
+//     if (err) {
+//       switch (err.type) {
+//         case "CredentialsSignin":
+//           return { error: "Invalid Username or Password!" };
+
+//         default:
+//           return { error: "Invalid Username or Password!" };
+//       }
+//     }
+
+//     throw err;
+//   }
+// };

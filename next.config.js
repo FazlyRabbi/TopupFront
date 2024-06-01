@@ -1,14 +1,5 @@
 /** @type {import('next').NextConfig} */
-
-const removeImports = require("next-remove-imports")();
-
-const nextConfig = removeImports({
-  cors: {
-    allowedHeaders: ["*"],
-    allowedOrigins: ["http://localhost:3000", "*"],
-    allowedMethods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  },
-
+const nextConfig = {
   async headers() {
     return [
       {
@@ -19,7 +10,7 @@ const nextConfig = removeImports({
           { key: "Access-Control-Allow-Origin", value: "*" },
           {
             key: "Access-Control-Allow-Methods",
-            value: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+            value: "GET,POST,PUT,PATCH,DELETE",
           },
           {
             key: "Access-Control-Allow-Headers",
@@ -37,15 +28,41 @@ const nextConfig = removeImports({
   },
 
   env: {
-    GET_ALL_REPO: process.env.GET_ALL_REPO,
-    SECRET_TOKEN: process.env.SECRET_TOKEN,
-    DATABASE_URL: process.env.DATABASE_URL,
-    CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
-    CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
-    CLOUDINARY_NAME: process.env.CLOUDINARY_NAME,
     API_URL: process.env.API_URL,
+    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+    BKASH_API_URL: process.env.BKASH_API_URL,
+    APP_KEY: process.env.APP_KEY,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+    APP_SECRET: process.env.APP_SECRET,
+    BKASH_USERNAME: process.env.BKASH_USERNAME,
+    BKASH_PASSWORD: process.env.BKASH_PASSWORD,
   },
-});
+
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
+  // future: {
+  //   webpack5: true,
+  // },
+
+  webpack: (config) => {
+    config.cache = {
+      type: "filesystem",
+      buildDependencies: {
+        config: [__filename],
+      },
+    };
+
+    // Optional: Adding any other custom Webpack configurations
+    // config.resolve = {
+    //   ...config.resolve,
+    //   // Custom alias or other configurations
+    // };
+
+    return config;
+  },
+};
 
 module.exports = nextConfig;
 

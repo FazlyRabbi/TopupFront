@@ -1,12 +1,15 @@
-import NextAuth from "next-auth";
-import authConfig from "./auth.config";
+import { getToken } from "next-auth/jwt";
+import { NextResponse } from "next/server";
 
-export const { auth } = NextAuth(authConfig);
+export default async function middleware(req) {
+  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
-export default auth((req) => {
-  console.log("Route:", !!req.auth);
-});
+  if (!token) {
+    return NextResponse.rewrite(new URL("/Login", req.url));
+  }
+}
 
 export const config = {
-  matcher: ["/auth/login"],
+  // matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ["/Dashboard", "/Offer/:path*"],
 };

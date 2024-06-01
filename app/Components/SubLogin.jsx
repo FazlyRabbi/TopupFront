@@ -1,12 +1,13 @@
 "use client";
-
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useId, useState } from "react";
 import logo from "@/app/Assist/Images/logo.png";
 import Image from "next/image";
+import { login } from "../Actions/login";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import useStore from "../useStore";
+
 import { signIn, signOut } from "next-auth/react";
 
 const init = {
@@ -14,9 +15,9 @@ const init = {
   password: "",
 };
 
-export default function page() {
+export default function SubLogin({ session }) {
+  const { hanleIslogin, fetchUserInfo, userInfo } = useStore();
   const [user, setUser] = useState(init);
-
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
@@ -24,7 +25,6 @@ export default function page() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
     try {
       const res = await signIn("credentials", {
         redirect: false,
@@ -32,29 +32,29 @@ export default function page() {
         password: user.password,
       });
 
-      if (res?.ok) {
-        Swal.fire({
-          text: `${"Login Success!"}`,
-          icon: "success",
-        });
-        // hanleIslogin();
-        // fetchUserInfo(user?.phone);
-        setUser(init);
-        router.push("/");
-        setIsLoading(false);
-      } else {
-        Swal.fire({
-          text: `${res?.error}`,
-          icon: "error",
-        });
-        setIsLoading(false);
-      }
-    } catch (err) {
-      Swal.fire({
-        text: `${err?.message}`,
-        icon: "error",
-      });
+      console.log(res);
 
+      // // const data = await login(user);
+      // if (data.ok) {
+      //   Swal.fire({
+      //     text: `${data.message}`,
+      //     icon: "success",
+      //   });
+
+      //   hanleIslogin();
+      //   fetchUserInfo(user?.phone);
+      //   setUser(init);
+      //   router.push("/");
+      //   setIsLoading(false);
+      // } else {
+      //   Swal.fire({
+      //     text: `${data.error}`,
+      //     icon: "error",
+      //   });
+      //   setIsLoading(false);
+      // }
+    } catch (err) {
+      console.log(err);
       setIsLoading(false);
     }
   };
