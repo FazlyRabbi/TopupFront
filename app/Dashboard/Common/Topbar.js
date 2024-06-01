@@ -4,7 +4,7 @@ import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
 
-const Topbar = ({ handleSidebar, user }) => {
+const Topbar = ({ handleSidebar, userInfo }) => {
   return (
     <div className="heading">
       <div>
@@ -18,10 +18,10 @@ const Topbar = ({ handleSidebar, user }) => {
       </div>
       <div className="profile flex  items-center">
         <p>
-          Balance: <span>{user?.user?.token}Tk</span>{" "}
+          Balance: <span>{userInfo?.token}Tk</span>{" "}
         </p>
         <span className="flex flex-wrap items-center gap-2">
-          <h6>{user?.user?.name}</h6>
+          <h6>{userInfo?.name}</h6>
           <FaUserCircle />
         </span>
       </div>

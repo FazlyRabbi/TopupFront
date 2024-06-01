@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { useSession } from "../Actions/login";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -23,18 +22,12 @@ import { FaShoppingCart } from "react-icons/fa";
 import Topbar from "./Common/Topbar";
 import { IoMdNotifications } from "react-icons/io";
 import Footer from "../Components/Footer";
+import useStore from "../useStore";
 
 export default function page() {
   const [openSidebar, setSidebar] = useState(true);
-  const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const user = async () => {
-      const session = await useSession();
-      setUser(session);
-    };
-    user();
-  }, []);
+  const { userInfo } = useStore();
 
   const handleSidebar = () => {
     setSidebar(!openSidebar);
@@ -89,7 +82,7 @@ export default function page() {
             ) : null}
             <section className="right-sidebar-content">
               <div className="dashboard-heading">
-                <Topbar handleSidebar={handleSidebar} user={user} />
+                <Topbar handleSidebar={handleSidebar} userInfo={userInfo} />
               </div>
 
               <TabPanel>
