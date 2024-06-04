@@ -6,10 +6,19 @@ const useStore = create((set) => ({
   isLogin: false,
   category: null,
   recentOrder: null,
+  token: null,
   userInfo: null,
   error: null,
   loading: false,
+  paymentInfo: null,
   setData: (data) => set({ data }),
+
+  setPaymentInfo: (info) => {
+    set({ paymentInfo: info });
+  },
+  setToken: (token) => {
+    set({ token: token });
+  },
 
   fetchUserInfo: async (phone) => {
     set({ loading: true, error: null });

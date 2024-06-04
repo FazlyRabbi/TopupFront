@@ -1,1 +1,56 @@
-heelo
+Bkash PGW Tokenised API:
+
+Username:01770618567
+Password:D7DaC<*E*eG
+App key:0vWQuCRGiUX7EPVjQDr0EUAYtc
+App Secret:jcUNPBgbcqEDedNKdvE4G1cAK7D3hCjmJccNPZZBq96QIxxwAMEx
+
+01770618575
+123456
+12121
+"0000"
+
+
+statusMessage
+statusCode
+API ENDPOINTS:
+
+Create Payment: https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/create
+
+Execute Payment: https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/execute
+
+TR00116AAlUfH1717404846693
+
+
+Grant Token: https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/token/grant
+
+
+Query Payment: https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/payment/status
+
+
+Refresh Token: https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/token/refresh
+
+
+Search Transaction: https://tokenized.sandbox.bka.sh/v1.2.0-beta/tokenized/checkout/general/searchTransaction
+
+
+**SANDBOX**
+
+
+Api Grant --- For Aproved payment
+
+Create Payment -- For Getting Bkash Payment Url 
+
+
+IP: 103.108.140.13
+root Password:z6srEDgH8
+
+ssh root@103.108.140.13
+
+
+======================
+Show Dynamic Pakage
+
+Puchase a Pakage 
+
+Add Found & show status
