@@ -1,13 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useStore from "../useStore";
 
-
-export default function page() {
-  // const token = localStorage.getItem("token");
+function MessagePage() {
   const searchParams = useSearchParams();
   const status = searchParams.get("status");
   const paymentID = searchParams.get("paymentID");
@@ -83,4 +81,12 @@ export default function page() {
   }, [status, paymentID]);
 
   return null;
+}
+
+export default function SuspenseWrapper() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MessagePage />
+    </Suspense>
+  );
 }
