@@ -6,14 +6,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import Skeleton from "react-loading-skeleton";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
-import slide1 from "@/app/Assist/Images/Carousel/slide (1).jpg";
-import slide2 from "@/app/Assist/Images/Carousel/slide (2).jpg";
-import slide3 from "@/app/Assist/Images/Carousel/slide (3).jpg";
 
-export default function Carousel() {
+export default function Carousel({ lower }) {
   return (
     <Swiper
       spaceBetween={30}
@@ -29,27 +27,23 @@ export default function Carousel() {
       modules={[Autoplay, Pagination, Navigation]}
       className="mySwiper"
     >
-      <SwiperSlide>
-        <div className="items">
-          <Image
-            src={slide1}
-            quality={100}
-            width={1200}
-            height={400}
-            alt="slide 1"
-          />
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="items">
-          <Image src={slide2} quality={100} width={1200} alt="slide 1" />
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="items">
-          <Image src={slide3} quality={100} width={1200} alt="slide 1" />
-        </div>
-      </SwiperSlide>
+      {lower ? (
+        lower?.map((slider) => (
+          <SwiperSlide>
+            <div className="items">
+              <Image
+                src={slider?.url}
+                quality={100}
+                width={1200}
+                height={400}
+                alt="slide 1"
+              />
+            </div>
+          </SwiperSlide>
+        ))
+      ) : (
+        <Skeleton count={10} />
+      )}
     </Swiper>
   );
 }

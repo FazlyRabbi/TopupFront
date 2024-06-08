@@ -10,11 +10,14 @@ import { RxCross1 } from "react-icons/rx";
 import { IoLogOut } from "react-icons/io5";
 import useStore from "../useStore";
 import { useSession, signOut } from "next-auth/react";
+import axios from "axios";
+import Skeleton from "react-loading-skeleton";
 
 export default function Navbar() {
   const { userInfo, fetchUserInfo } = useStore();
   const [openProfile, setOpenProfile] = useState(false);
   const [menu, setMenu] = useState(false);
+  const [logo, setLogo] = useState(null);
 
   const { data: session } = useSession();
 
@@ -24,17 +27,36 @@ export default function Navbar() {
     }
   }, []);
 
+  useEffect(() => {
+    const fetch = async () => {
+      const response = await axios.patch(
+        `${process.env.API_URL}/api/cloudinary`,
+        {
+          type: "logo",
+        }
+      );
+
+      setLogo(response?.data?.data[0]?.logo);
+    };
+    fetch();
+  }, []);
+
   return (
     <div className="navbar-area flex justify-between items-center px-5">
       <div className="brand-logo w-[20%]">
-        <Link href={"/"}>
-          <Image
-            src={logo}
-            alt={"Brand-logo"}
-            quality={100}
-            width={100}
-          ></Image>
-        </Link>
+        {logo ? (
+          <Link href={"/"}>
+            <Image
+              src={logo}
+              alt={"Brand-logo"}
+              quality={100}
+              height={100}
+              width={100}
+            ></Image>
+          </Link>
+        ) : (
+          <Skeleton count={2} />
+        )}
       </div>
       <div className="nav-items">
         <nav>

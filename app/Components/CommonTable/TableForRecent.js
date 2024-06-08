@@ -4,7 +4,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import useStore from "@/app/useStore";
 import { getTimeDifference } from "@/app/utils/getTimeDifference";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 export default function TableForRecent({ thead, tbody }) {
   const { recentOrder, fetchRecentOrder, fetchUserInfo } = useStore();

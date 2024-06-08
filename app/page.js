@@ -8,6 +8,8 @@ import Carousel from "./Components/Slider/Slide";
 import useStore from "./useStore";
 import { useSession } from "next-auth/react";
 import axios from "axios";
+import Skeleton from "react-loading-skeleton";
+import Image from "next/image";
 
 export const metaData = {
   title: "Best Topup offers",
@@ -18,6 +20,9 @@ export default function page() {
   const { userInfo, fetchUserInfo, paymentInfo, setPaymentInfo } = useStore();
   const { data: session } = useSession();
   const [call, setCall] = useState(0);
+
+  const [hero, setHero] = useState(null);
+  const [lower, setLower] = useState(null);
 
   useEffect(() => {
     if (session) {
@@ -81,6 +86,25 @@ export default function page() {
     }
   }, [paymentInfo, userInfo]);
 
+  useEffect(() => {
+    const fetch = async () => {
+      const response = await axios.patch(
+        `${process.env.API_URL}/api/cloudinary`,
+        {
+          type: "hero",
+        }
+      );
+      const res = await axios.patch(
+        `${process.env.API_URL}/api/cloudinary`,
+        {}
+      );
+
+      setLower(res?.data?.data);
+      setHero(response?.data?.data[0]?.url);
+    };
+    fetch();
+  }, []);
+
   const heading = [
     "প্যাকেজসমূহ",
     "স্টাটাস",
@@ -91,8 +115,17 @@ export default function page() {
 
   return (
     <div className="Homepage page">
-      <section className="banner-section">
-        <h2>ঈদুল ফিতরের শুভেচ্ছা </h2>
+      <section className=" flex  items-center justify-center">
+        {hero ? (
+          <Image
+            src={hero}
+            height={200}
+            width={500}
+            className=" rounded-md   h-[30rem]  w-[70rem]"
+          />
+        ) : (
+          <Skeleton count={10} />
+        )}
       </section>
 
       <section className="offer-section">
@@ -101,7 +134,7 @@ export default function page() {
 
       <section className="">
         <div className="slider-area">
-          <Carousel />
+          <Carousel lower={lower} />
         </div>
       </section>
 
